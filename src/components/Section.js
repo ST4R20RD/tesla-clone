@@ -3,8 +3,9 @@ import styled from "styled-components";
 import Fade from "react-reveal/Fade";
 
 function Section({ title, description, backgroundImg, leftBtnText, rightBtnText }) {
+  const sectionId = title.replaceAll(' ', '').toLowerCase()
   return (
-    <Wrap bgImage={backgroundImg}>
+    <Wrap bgImage={backgroundImg} id={sectionId}>
       <Fade bottom>
         <ItemText>
           <h1>{title}</h1>

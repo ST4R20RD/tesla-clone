@@ -23,14 +23,15 @@ function Header() {
       <Menu>
         {cars &&
           cars.map((car, index) => {
+            const linkHref = "#" + car.replaceAll(" ", "").toLowerCase();
             return (
-              <Button href="#" key={index}>
+              <Button href={linkHref} key={index}>
                 {car}
               </Button>
             );
           })}
-        <Button href="#">Solar Roof</Button>
-        <Button href="#">Solar Panels</Button>
+        <Button href="#solarroof">Solar Roof</Button>
+        <Button href="#solarpanels">Solar Panels</Button>
       </Menu>
       <RightMenu>
         <Button href="#">Shop</Button>
@@ -44,9 +45,10 @@ function Header() {
         {cars &&
           isDesktop &&
           cars.map((car, index) => {
+            const linkHref = "#" + car.replaceAll(" ", "").toLowerCase();
             return (
               <li>
-                <Button href="#" key={index}>
+                <Button href={linkHref} key={index} onClick={() => setBurgerOpen(false)}>
                   {car}
                 </Button>
               </li>

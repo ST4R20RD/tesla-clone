@@ -41,7 +41,7 @@ function Home() {
         rightBtnText="Learn More"
       />
       <Section
-        title="Solar Roofs"
+        title="Solar Roof"
         description="Produce Clean Energy From Your Roof"
         backgroundImg="solar-roof.jpg"
         leftBtnText="Order Now"
