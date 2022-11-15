@@ -4,6 +4,7 @@ import CloseIcon from "@mui/icons-material/Close";
 import { selectCars } from "../features/car/carSlice";
 import { useSelector } from "react-redux";
 import { useMediaQuery } from "react-responsive";
+import GitHubIcon from "@mui/icons-material/GitHub";
 
 function Header() {
   const [burgerOpen, setBurgerOpen] = useState(false);
@@ -19,6 +20,24 @@ function Header() {
         <a href="/">
           <img src="/images/logo.svg" alt="" />
         </a>
+        <p>
+          Clone by{" "}
+          <a
+            href="https://www.linkedin.com/in/goncaloestrelado/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Gonçalo Estrelado
+          </a>
+        </p>
+        <Link
+          href="https://github.com/ST4R20RD/tesla-clone"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <GitHubIcon />
+          &nbsp;ST4RL0RD
+        </Link>
       </LogoWrapper>
       <Menu>
         {cars &&
@@ -113,6 +132,14 @@ const Container = styled.div`
 
 const LogoWrapper = styled.div`
   width: 12vw;
+  font-size: 10px;
+`;
+
+const Link = styled.a`
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  padding: 5px 0;
 `;
 
 const Button = styled.a`

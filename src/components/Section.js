@@ -9,9 +9,10 @@ function Section({ title, description, backgroundImg, leftBtnText, rightBtnText 
         <ItemText>
           <h1>{title}</h1>
           {description === "car" ? (
-            <div style={{ display: "flex" }}>
-              <p>Order Online for&nbsp;</p>
-              <a href="#">Touchless Delivery</a>
+            <div>
+              <p>
+                Order Online for <a href="#">Touchless Delivery</a>
+              </p>
             </div>
           ) : (
             <p>{description}</p>
