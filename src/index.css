@@ -1,6 +1,8 @@
+@import url("https://fonts.cdnfonts.com/css/gotham-ssm");
+
 * {
   box-sizing: border-box;
-  font-family: "Rubik", sans-serif;
+  font-family: "Gotham SSm", sans-serif;
   color: #393c41;
   margin: 0;
   padding: 0;
@@ -11,8 +13,9 @@ body {
   overflow-x: hidden;
 }
 
-a {
-  text-decoration: none;
+h1 {
+  font-size: 40px;
+  font-weight: 400;
 }
 
 li {

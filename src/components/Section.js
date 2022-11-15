@@ -8,16 +8,33 @@ function Section({ title, description, backgroundImg, leftBtnText, rightBtnText 
       <Fade bottom>
         <ItemText>
           <h1>{title}</h1>
-          <p>{description}</p>
+          {description === "car" ? (
+            <div style={{ display: "flex" }}>
+              <p>Order Online for&nbsp;</p>
+              <a href="#">Touchless Delivery</a>
+            </div>
+          ) : (
+            <p>{description}</p>
+          )}
         </ItemText>
       </Fade>
       <Buttons>
-        <Fade bottom>
-          <ButtonGroup>
-            <LeftButton>{leftBtnText}</LeftButton>
-            {rightBtnText ? <RightButton>{rightBtnText}</RightButton> : null}
-          </ButtonGroup>
-        </Fade>
+        <ButtonGroup>
+          {rightBtnText ? (
+            <>
+              <Fade left>
+                <LeftButton>{leftBtnText}</LeftButton>
+              </Fade>
+              <Fade right>
+                <RightButton>{rightBtnText}</RightButton>
+              </Fade>
+            </>
+          ) : (
+            <Fade>
+              <LeftButton>{leftBtnText}</LeftButton>
+            </Fade>
+          )}
+        </ButtonGroup>
         <DownArrow src="/images/down-arrow.svg" />
       </Buttons>
     </Wrap>
@@ -37,11 +54,13 @@ const Wrap = styled.div`
   justify-content: space-between;
   align-items: center;
   background-image: ${(props) => `url("/images/${props.bgImage}")`};
+  scroll-snap-align: start;
 `;
 
 const ItemText = styled.div`
   padding-top: 15vh;
   text-align: center;
+  font-weight: 300;
 `;
 
 const ButtonGroup = styled.div`
@@ -60,10 +79,11 @@ const LeftButton = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 100px;
+  border-radius: 5px;
   opacity: 0.85;
   text-transform: uppercase;
   font-size: 12px;
+  font-weight: 800;
   cursor: pointer;
   margin: 8px;
 `;
@@ -80,4 +100,8 @@ const DownArrow = styled.img`
   animation: animateDown infinite 1.5s;
 `;
 
-const Buttons = styled.div``;
+const Buttons = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;

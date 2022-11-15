@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import { selectCars } from "../features/car/carSlice";
 import { useSelector } from "react-redux";
@@ -11,29 +10,32 @@ function Header() {
   const cars = useSelector(selectCars);
 
   const isDesktop = useMediaQuery({
-    query: "(max-width: 768px)",
+    query: "(max-width: 1200px)",
   });
-  console.log({ isDesktop });
 
   return (
     <Container>
-      <a>
-        <img src="/images/logo.svg" alt="" />
-      </a>
+      <LogoWrapper>
+        <a href="/">
+          <img src="/images/logo.svg" alt="" />
+        </a>
+      </LogoWrapper>
       <Menu>
         {cars &&
           cars.map((car, index) => {
             return (
-              <a href="#" key={index}>
+              <Button href="#" key={index}>
                 {car}
-              </a>
+              </Button>
             );
           })}
+        <Button href="#">Solar Roof</Button>
+        <Button href="#">Solar Panels</Button>
       </Menu>
       <RightMenu>
-        <a href="#">Shop</a>
-        <a href="#">Tesla Account</a>
-        <CustomMenu onClick={() => setBurgerOpen(true)} />
+        <Button href="#">Shop</Button>
+        <Button href="#">Account</Button>
+        <CustomMenu onClick={() => setBurgerOpen(true)}>Menu</CustomMenu>
       </RightMenu>
       <BurgerNav show={burgerOpen}>
         <CloseWrapper>
@@ -44,50 +46,50 @@ function Header() {
           cars.map((car, index) => {
             return (
               <li>
-                <a href="#" key={index}>
+                <Button href="#" key={index}>
                   {car}
-                </a>
+                </Button>
               </li>
             );
           })}
         <li>
-          <a href="#">Existing Inventory</a>
+          <Button href="#">Existing Inventory</Button>
         </li>
         <li>
-          <a href="#">Used Inventory</a>
+          <Button href="#">Used Inventory</Button>
         </li>
         <li>
-          <a href="#">Trade-in</a>
+          <Button href="#">Trade-in</Button>
         </li>
         <li>
-          <a href="#">Cybertruck</a>
+          <Button href="#">Cybertruck</Button>
         </li>
         <li>
-          <a href="#">Roadster</a>
+          <Button href="#">Roadster</Button>
         </li>
         <li>
-          <a href="#">Semi</a>
+          <Button href="#">Semi</Button>
         </li>
         <li>
-          <a href="#">Charging</a>
+          <Button href="#">Charging</Button>
         </li>
         <li>
-          <a href="#">Powerwall</a>
+          <Button href="#">Powerwall</Button>
         </li>
         <li>
-          <a href="#">Commercial Energy</a>
+          <Button href="#">Commercial Energy</Button>
         </li>
         <li>
-          <a href="#">Utilities</a>
+          <Button href="#">Utilities</Button>
         </li>
         <li>
-          <a href="#">Find Us</a>
+          <Button href="#">Find Us</Button>
         </li>
         <li>
-          <a href="#">Support</a>
+          <Button href="#">Support</Button>
         </li>
         <li>
-          <a href="#">Investor Relations</a>
+          <Button href="#">Investor Relations</Button>
         </li>
       </BurgerNav>
     </Container>
@@ -109,34 +111,43 @@ const Container = styled.div`
   z-index: 10;
 `;
 
+const LogoWrapper = styled.div`
+  width: 12vw;
+`;
+
+const Button = styled.a`
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+  padding: 8px 10px;
+  border-radius: 5px;
+  flex-wrap: nowrap;
+  text-decoration: none;
+  :hover {
+    background-color: rgba(63, 63, 63, 0.1);
+    transition: background-color 500ms linear;
+  }
+`;
+
 const Menu = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
   flex: 1;
-  a {
-    font-weight: 600;
-    text-transform: uppercase;
-    padding: 0 10px;
-    flex-wrap: nowrap;
-  }
 
-  @media (max-width: 768px) {
+  @media (max-width: 1200px) {
     display: none;
   }
 `;
 
 const RightMenu = styled.div`
+  width: 12vw;
   display: flex;
   align-items: center;
-  a {
-    font-weight: 600;
-    text-transform: uppercase;
-    margin-right: 10px;
-  }
+  justify-content: flex-end;
 `;
 
-const CustomMenu = styled(MenuIcon)`
+const CustomMenu = styled(Button)`
   cursor: pointer;
 `;
 
@@ -164,7 +175,11 @@ const BurgerNav = styled.div`
 `;
 
 const CustomClose = styled(CloseIcon)`
-  cursor: pointer;
+  border-radius: 5px;
+  :hover {
+    background-color: rgba(63, 63, 63, 0.1);
+    transition: background-color 500ms linear;
+  }
 `;
 
 const CloseWrapper = styled.div`
