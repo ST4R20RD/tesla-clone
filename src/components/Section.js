@@ -9,7 +9,7 @@ function Section({ title, description, backgroundImg, leftBtnText, rightBtnText 
         <ItemText>
           <h1>{title}</h1>
           {description === "car" ? (
-            <div>
+            <div style={{padding: '20px 0'}}>
               <p>
                 Order Online for <a href="#">Touchless Delivery</a>
               </p>
@@ -47,6 +47,9 @@ export default Section;
 const Wrap = styled.div`
   width: 100vw;
   height: 100vh;
+  @media (max-width: 385px) {
+    height: 93.5vh;
+  }
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

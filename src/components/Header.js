@@ -4,7 +4,6 @@ import CloseIcon from "@mui/icons-material/Close";
 import { selectCars } from "../features/car/carSlice";
 import { useSelector } from "react-redux";
 import { useMediaQuery } from "react-responsive";
-import GitHubIcon from "@mui/icons-material/GitHub";
 
 function Header() {
   const [burgerOpen, setBurgerOpen] = useState(false);
@@ -20,24 +19,6 @@ function Header() {
         <a href="/">
           <img src="/images/logo.svg" alt="" />
         </a>
-        <p>
-          Clone by{" "}
-          <a
-            href="https://www.linkedin.com/in/goncaloestrelado/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Gonçalo Estrelado
-          </a>
-        </p>
-        <Link
-          href="https://github.com/ST4R20RD/tesla-clone"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <GitHubIcon />
-          &nbsp;ST4RL0RD
-        </Link>
       </LogoWrapper>
       <Menu>
         {cars &&
@@ -132,14 +113,6 @@ const Container = styled.div`
 
 const LogoWrapper = styled.div`
   width: 12vw;
-  font-size: 10px;
-`;
-
-const Link = styled.a`
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  padding: 5px 0;
 `;
 
 const Button = styled.a`
@@ -172,10 +145,27 @@ const RightMenu = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-end;
+
+  @media (max-width: 385px) {
+    a {
+      display: none;
+    }
+  }
 `;
 
-const CustomMenu = styled(Button)`
+const CustomMenu = styled.div`
   cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+  padding: 8px 10px;
+  border-radius: 5px;
+  flex-wrap: nowrap;
+  text-decoration: none;
+  :hover {
+    background-color: rgba(63, 63, 63, 0.1);
+    transition: background-color 500ms linear;
+  }
 `;
 
 const BurgerNav = styled.div`
