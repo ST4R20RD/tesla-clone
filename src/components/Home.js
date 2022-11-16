@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Section from "./Section";
+import Footer from "./Footer";
 
 function Home() {
   return (
@@ -48,6 +49,7 @@ function Home() {
         rightBtnText="Learn More"
       />
       <Section title="Accessories" backgroundImg="accessories.jpg" leftBtnText="Shop now" />
+      <Footer />
     </Container>
   );
 }
@@ -57,6 +59,9 @@ export default Home;
 const Container = styled.div`
   height: 100vh;
   scroll-snap-type: y mandatory;
-  overflow-y: auto;
+  overflow-y: scroll;
   overflow-x: hidden;
+  #accessories {
+    height: calc(100vh - 59px);
+  }
 `;
