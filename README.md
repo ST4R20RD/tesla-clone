@@ -2,4 +2,4 @@
 
 ## https://tesla-clone-gnestrelado.netlify.app/
 
-###by Gonçalo Estrelado
+by Gonçalo Estrelado
