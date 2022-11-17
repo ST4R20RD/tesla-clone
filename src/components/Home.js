@@ -64,4 +64,9 @@ const Container = styled.div`
   #accessories {
     height: calc(100vh - 59px);
   }
+  @media (max-width: 425px) {
+    #accessories {
+      height: calc(100vh - 190px);
+    }
+  }
 `;

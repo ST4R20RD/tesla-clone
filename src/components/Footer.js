@@ -28,4 +28,8 @@ const List = styled.ul`
     padding: 0 0 5px 15px;
     color: rgba(60, 60, 60, 0.8);
   }
+  @media (max-width: 425px) {
+    flex-direction: column;
+    align-items: center;
+  }
 `;
